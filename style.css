@@ -1,1 +1,149 @@
-/* Add your CSS here */
+/* Set the colors and fonts used throughout the page. */
+:root {
+	--ink: #15232d;
+	--muted-ink: #53636b;
+	--paper: #f4f1e8;
+	--card: #fffdf8;
+	--teal: #007f86;
+	--orange: #e66e3f;
+	--line: #c7d5ce;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	color: var(--ink);
+	background: var(--paper);
+	font-family: Georgia, 'Times New Roman', serif;
+	line-height: 1.6;
+}
+
+header {
+	padding: 64px 24px 90px;
+	color: white;
+	text-align: center;
+	background: linear-gradient(135deg, #063c4a, #007f86 60%, #6a9c86);
+}
+
+header > div {
+	max-width: 760px;
+	margin: 0 auto;
+}
+
+header img {
+	width: 150px;
+	margin-bottom: 24px;
+}
+
+h1,
+h2,
+h3,
+p {
+	margin-top: 0;
+}
+
+h1 {
+	margin-bottom: 16px;
+	font-size: clamp(2.4rem, 7vw, 5.5rem);
+	line-height: 1.05;
+	letter-spacing: -1px;
+}
+
+header p {
+	max-width: 620px;
+	margin-right: auto;
+	margin-left: auto;
+	color: #e0f0e9;
+	font-size: 1.1rem;
+}
+
+.timeline {
+	display: flex;
+	gap: 24px;
+	max-width: 1460px;
+	margin: -44px auto 0;
+	padding: 0 24px 48px;
+	overflow-x: auto;
+	scroll-snap-type: x proximity;
+}
+
+.timeline-card {
+	position: relative;
+	flex: 0 0 290px;
+	min-height: 480px;
+	padding: 24px;
+	overflow: hidden;
+	background: var(--card);
+	border: 1px solid var(--line);
+	border-top: 6px solid var(--teal);
+	box-shadow: 0 14px 30px rgba(21, 35, 45, 0.1);
+	scroll-snap-align: start;
+	transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.timeline-card:hover {
+	transform: translateY(-8px);
+	box-shadow: 0 20px 34px rgba(21, 35, 45, 0.18);
+}
+
+.timeline-card h2 {
+	display: inline-block;
+	margin-bottom: 10px;
+	padding: 3px 11px;
+	color: white;
+	background: var(--orange);
+	font-family: Arial, sans-serif;
+	font-size: 0.95rem;
+	letter-spacing: 1px;
+}
+
+.timeline-card h3 {
+	margin-bottom: 16px;
+	font-size: 1.45rem;
+	line-height: 1.15;
+}
+
+.timeline-card img {
+	display: block;
+	width: calc(100% + 48px);
+	height: 145px;
+	margin: 0 -24px 20px;
+	object-fit: cover;
+}
+
+.timeline-card p {
+	color: var(--muted-ink);
+	font-size: 0.97rem;
+}
+
+.timeline-note {
+	margin: 0 auto 36px;
+	padding: 0 24px;
+	color: var(--muted-ink);
+	text-align: center;
+	font-family: Arial, sans-serif;
+	font-size: 0.85rem;
+	letter-spacing: 0.5px;
+}
+
+@media (max-width: 700px) {
+	header {
+		padding: 42px 20px 72px;
+	}
+
+	.timeline {
+		display: block;
+		margin-top: -32px;
+		padding-right: 20px;
+		padding-left: 20px;
+		overflow-x: visible;
+	}
+
+	.timeline-card {
+		min-height: 0;
+		margin-bottom: 22px;
+	}
+}
